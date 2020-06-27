@@ -70,7 +70,7 @@ class FrameWorkServer {
 
   startServer() {
     app.listen(this.config.port, (res) => {
-      console.log("library server is running on ", this.config.port);
+      console.log("SERVER RUNNING ON PORT : ", this.config.port);
     });
   }
 }

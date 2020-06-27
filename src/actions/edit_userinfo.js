@@ -2,10 +2,10 @@ const moment = require("moment");
 const _ = require("underscore");
 
 module.exports = {
-  identifier: "edit_membership",
+  identifier: "edit_userinfo",
   require_selection: true,
   form: {
-    header: "Edit Membership",
+    header: "Edit Userinfo",
     fields: [
       {
         key: "name",

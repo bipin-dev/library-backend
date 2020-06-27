@@ -6,13 +6,13 @@ module.exports = [
     access: ["admin"]
   },
   {
-    label: "Issue Requests",
+    label: "Issue Requests Books",
     link: "/wrk/admin_requests",
     type: "workflow",
     access: ["admin"]
   },
   {
-    label: "Accept Book",
+    label: "Accept Returned Book",
     link: "/wrk/accept_book",
     type: "workflow",
     access: ["admin"]

@@ -1,6 +1,5 @@
 module.exports = [
-  require("./books"),
-  require("./admins"),
-  require("./users"),
-  require("./booksIssues")
+	require("./books"),
+	require("./users"),
+	require("./booksIssues")
 ];

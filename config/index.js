@@ -1,5 +1,6 @@
 module.exports = {
   port: 4000,
+  environment: "prod",
   app_name: "Library Management",
   version: "1.0.0",
   dir: {

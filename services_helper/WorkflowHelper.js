@@ -13,6 +13,33 @@ class WorkflowHelper {
     return false;
   }
 
+  async wfSearch(filter, user) {
+    if (!this.isPermission(user)) {
+      return { error: "Your Not Allowed to access this page" };
+    }
+    return this.searchQuery(filter.search);
+  }
+
+  async searchQuery(val) {
+    let query = {};
+    if (this.mConfig.searchField) {
+      let re = new RegExp(val, "gi");
+      query[this.mConfig.searchField] = { $regex: re };
+    }
+    let filter = this.mConfig.filter || {};
+    if (typeof filter == "function") {
+      filter = filter(this.fr, user);
+    }
+    query = Object.assign(query, filter);
+    let coll =
+      this.mConfig.db_config && this.mConfig.db_config.coll
+        ? this.mConfig.db_config.coll
+        : "";
+    return this.fr.DBManager.db[coll].find(query).then((res) => {
+      return res;
+    });
+  }
+
   async get(user) {
     if (!this.isPermission(user)) {
       return { error: "Your Not Allowed to access this page" };
@@ -34,7 +61,8 @@ class WorkflowHelper {
       top_action: this.mConfig.top_action,
       inline_action: this.mConfig.inline_action,
       filter: this.mConfig.filter,
-      display: this.mConfig.display
+      display: this.mConfig.display,
+      searchEnabled: this.mConfig.searchEnabled || false
     };
   }
 

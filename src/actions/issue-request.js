@@ -24,7 +24,7 @@ module.exports = {
       let today = moment();
       let membershipDate = moment(user.membership_days);
       let diff = membershipDate.diff(today, "days");
-      console.log("validate..... ", diff);
+
       if (5 >= parseInt(diff)) {
         return {
           isValid: false,
@@ -41,12 +41,12 @@ module.exports = {
     let timeFormat = "hh:mm:ss";
     let current = moment();
     let issueStart = moment("10:00:00", timeFormat);
-    let issueEnd = moment("17:00:00", timeFormat);
+    let issueEnd = moment("15:00:00", timeFormat);
 
     if (!current.isBetween(issueStart, issueEnd)) {
       return {
         isValid: false,
-        message: "Issue can happen in only between 10am to 5pm"
+        message: "Issue can happen in only between 10am to 3pm"
       };
     }
     let bookInfo = await db.books.findOne({ _id: recordId });
@@ -60,13 +60,12 @@ module.exports = {
     return { isValid: true };
   },
   save: async (form, db, fr, config, recordId, user) => {
-    console.log("form is .. ", recordId);
-    console.log("user is .. ", user);
     let obj = {
       username: user.username,
       user_id: user._id.toString(),
       book_id: recordId,
-      status: "requested"
+      status: "requested",
+      type: "issue"
     };
     if (form.days == "1 day") {
       obj.duration = 1;

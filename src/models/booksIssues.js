@@ -7,6 +7,7 @@ module.exports = {
 		status: String,
 		duration: Number,
 		issued_date: Date,
-		returned_date: Date
+		returned_date: Date,
+		type: String
 	}
 };

@@ -8,5 +8,7 @@ module.exports = {
 	approve_request: require("./approve_request"),
 	edit_membership: require("./edit_membership"),
 	book_accepted: require("./book_accepted"),
+	delete_history: require("./delete_history"),
+	reject_request: require("./reject_request"),
 	edit_userinfo: require("./edit_userinfo")
 };

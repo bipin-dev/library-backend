@@ -11,6 +11,8 @@ module.exports = {
     coll: "books"
   },
   filter: {},
+  searchEnabled: true,
+  searchField: "book_name",
   display: [
     { key: "book_name", label: "Book Name" },
     { key: "author_name", label: "Author" },

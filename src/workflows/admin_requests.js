@@ -16,6 +16,7 @@ module.exports = {
     { key: "book_name", label: "Book Name" },
     { key: "author_name", label: "Author Name" },
     { key: "edition", label: "Edition" },
+    { key: "type", label: "Type of Issue" },
     { key: "duration", label: "Days" },
     { key: "status", label: "Status" }
   ],

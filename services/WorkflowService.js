@@ -33,11 +33,24 @@ class WorkflowService {
     let result = await this.get(identifier, req.user);
     res.send(result);
   }
+
+  async search(req, res) {
+    let params = req.params;
+    let query = req.query;
+    let id = params.workflow;
+    let currentModule = this.getInstance(id);
+    if (!currentModule) {
+      throw new Error("No such workflow exists in our system");
+    }
+    console.log("workflow search query is ... ", params, query);
+    let result = await currentModule.wfSearch(query, req.user);
+    res.send(result);
+  }
   // get blocked access user workflow according to login thing .
   async get(id, user) {
     let currentModule = this.getInstance(id);
     if (!currentModule) {
-      throw new Error("No such module exists in our system");
+      throw new Error("No such workflow exists in our system");
     }
     let res = await currentModule.get(user);
     return res;
