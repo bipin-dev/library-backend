@@ -40,10 +40,10 @@ class FrameWorkServer {
     this.configureServices()
       .then(() => this.DBManager.initialize())
       .then(() => this.initSessionPassport())
+      .then(() => this.NavService.initialize())
       .then(() => this.RouterManager.initialize())
       .then(() => this.WorkflowService.initialize())
       .then(() => this.ActionService.initialize())
-      .then(() => this.NavService.initialize())
       .catch((err) => console.log(err));
   }
 
