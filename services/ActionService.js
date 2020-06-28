@@ -15,8 +15,6 @@ class ActionService {
     let params = req.params;
     let query = req.query;
     let id = params.action;
-    console.log("query:", query);
-    console.log("all actions are ... ", this.actions);
     let action = this.actions[id];
     let form = action && action.form ? Object.assign({}, action.form) : {};
     if (action && action.require_selection && form.values) {

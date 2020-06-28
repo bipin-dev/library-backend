@@ -42,7 +42,6 @@ class WorkflowService {
     if (!currentModule) {
       throw new Error("No such workflow exists in our system");
     }
-    console.log("workflow search query is ... ", params, query);
     let result = await currentModule.wfSearch(query, req.user);
     res.send(result);
   }

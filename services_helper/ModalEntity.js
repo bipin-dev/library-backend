@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-if (process.env.NODE_ENV == "prod") {
-  console.log("*** mongo atlas connnect ***");
-  mongoose.connect(
-    "mongodb+srv://stack_finance:qwerty321@cluster0-wo6jn.mongodb.net/stack_finance?retryWrites=true&w=majority"
-  );
-} else {
-  console.log("*** local mongo connected ***");
-  mongoose.connect("mongodb://127.0.0.1/stack_finance");
-}
+// if (process.env.NODE_ENV == "prod") {
+//   console.log("*** mongo atlas connnect ***");
+//   mongoose.connect(
+//     "mongodb+srv://stack_finance:qwerty321@cluster0-wo6jn.mongodb.net/stack_finance?retryWrites=true&w=majority"
+//   );
+// } else {
+//   console.log("*** local mongo connected ***");
+//   mongoose.connect("mongodb://127.0.0.1/stack_finance");
+// }
 var conn = mongoose.connection;
 
 class ModalEntity {
