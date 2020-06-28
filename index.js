@@ -18,3 +18,5 @@ const inst = new Server(config);
 inst.initialize();
 
 inst.startServer();
+
+module.exports = inst;

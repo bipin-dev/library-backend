@@ -3,6 +3,7 @@ module.exports = {
   environment: "prod",
   app_name: "Library Management",
   version: "1.0.0",
+  app_url: "http://ec2-18-217-247-175.us-east-2.compute.amazonaws.com/api",
   dir: {
     models: "/src/models",
     workflows: "/src/workflows",

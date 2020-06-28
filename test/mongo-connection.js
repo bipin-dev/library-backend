@@ -1,14 +1,16 @@
-const assert = require("chai").assert;
-const path = require("path");
-const config = require("../config");
-const dbDir = path.resolve(__dirname + "/../services/DBManager");
-const DBManager = require(dbDir);
+const chai = require("chai");
+const assert = chai.assert;
+var expect = chai.expect;
 
-// const assert = require("assert");
-const dbManager = new DBManager(config, this);
+const chaiHttp = require("chai-http");
+chai.use(chaiHttp);
+const framework = require("../index");
+
+const DBManager = framework.DBManager;
+
 describe("Mongoose Connection", function() {
   it("DB Connection status should return 1", function() {
-    let status = dbManager.testDBConnection();
+    let status = DBManager.testDBConnection();
     assert.equal(1, status);
   });
 });
