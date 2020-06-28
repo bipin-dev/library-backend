@@ -7,6 +7,7 @@ class ActionService {
 
   initialize() {
     let path = this.config.dir.app + this.config.dir.actions;
+    console.log("action path is .. ", path);
     this.actions = require(path);
   }
 
@@ -15,9 +16,10 @@ class ActionService {
     let query = req.query;
     let id = params.action;
     console.log("query:", query);
+    console.log("all actions are ... ", this.actions);
     let action = this.actions[id];
     let form = action && action.form ? Object.assign({}, action.form) : {};
-    if (action.require_selection && form.values) {
+    if (action && action.require_selection && form.values) {
       form.values = await form.values(
         this.fr.DBManager.db,
         this.fr,
