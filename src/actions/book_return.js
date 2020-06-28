@@ -15,8 +15,8 @@ module.exports = {
   validate: (form, db, fr, config, recordId, user) => {
     let timeFormat = "hh:mm:ss";
     let current = moment();
-    let issueStart = moment("10:00:00", timeFormat);
-    let issueEnd = moment("17:00:00", timeFormat);
+    let issueStart = moment("04:30:00", timeFormat); // in utc
+    let issueEnd = moment("11:30:00", timeFormat);
 
     if (current.isBetween(issueStart, issueEnd)) {
       return { isValid: true };
